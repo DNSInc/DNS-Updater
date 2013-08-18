@@ -1,4 +1,4 @@
-package com.dnstechpack.core.handlers;
+package com.dnstechpack.handlers;
 
 import java.util.EnumSet;
 

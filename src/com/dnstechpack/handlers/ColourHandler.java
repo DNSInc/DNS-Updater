@@ -1,4 +1,4 @@
-package com.dnstechpack.core.handlers;
+package com.dnstechpack.handlers;
 
 import com.dnstechpack.enums.EnumColour;
 import com.dnstechpack.lib.Reference;

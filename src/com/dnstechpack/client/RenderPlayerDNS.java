@@ -1,10 +1,6 @@
 package com.dnstechpack.client;
 
-import static net.minecraftforge.client.IItemRenderer.ItemRenderType.EQUIPPED;
-import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.BLOCK_3D;
-
-import java.util.Locale;
-
+import com.dnstechpack.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -22,10 +18,12 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
-
 import org.lwjgl.opengl.GL11;
 
-import com.dnstechpack.lib.Reference;
+import java.util.Locale;
+
+import static net.minecraftforge.client.IItemRenderer.ItemRenderType.EQUIPPED;
+import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.BLOCK_3D;
 
 public class RenderPlayerDNS extends RenderPlayer {
 
@@ -281,7 +279,7 @@ public class RenderPlayerDNS extends RenderPlayer {
         super.renderSpecials(player, par2);
 
         if (!player.getHideCape() && Reference.allowCape) {
-            
+
             GL11.glPushMatrix();
 
             ResourceLocation capeRL = null;

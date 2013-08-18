@@ -1,13 +1,11 @@
-package com.dnstechpack.core.proxy;
-
-import net.minecraft.entity.player.EntityPlayer;
+package com.dnstechpack.proxy;
 
 import com.dnstechpack.client.RenderPlayerDNS;
-import com.dnstechpack.core.handlers.TickHandler;
-
+import com.dnstechpack.handlers.TickHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
+import net.minecraft.entity.player.EntityPlayer;
 
 public class ClientProxy extends CommonProxy {
 

@@ -1,6 +1,6 @@
-package com.dnstechpack.core.handlers;
+package com.dnstechpack.handlers;
 
-import com.dnstechpack.core.helpers.VersionHelper;
+import com.dnstechpack.helpers.VersionHelper;
 
 public class VersionHandler {
 

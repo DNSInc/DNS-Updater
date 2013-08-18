@@ -1,6 +1,5 @@
-package com.dnstechpack.core.helpers;
+package com.dnstechpack.helpers;
 
-import com.dnstechpack.DNSUpdater;
 import com.dnstechpack.configuration.DataProxy;
 import com.dnstechpack.lib.Reference;
 
@@ -23,6 +22,6 @@ public class VersionHelper {
 
     public static String resolveLocalVersion() {
 
-        return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), Reference.VERSION_INDEX);
+        return (String)Reference.SETTINGS.get("Version");
     }
 }

@@ -1,4 +1,4 @@
-package com.dnstechpack.core.helpers;
+package com.dnstechpack.helpers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
