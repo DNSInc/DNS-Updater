@@ -1,11 +1,13 @@
 package com.dnstechpack.proxy;
 
-import com.dnstechpack.client.RenderPlayerDNS;
+import net.minecraftforge.common.MinecraftForge;
+
+import com.dnstechpack.handlers.EventHandler;
 import com.dnstechpack.handlers.TickHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
+import com.dnstechpack.lib.Reference;
+
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.entity.player.EntityPlayer;
 
 public class ClientProxy extends CommonProxy {
 
@@ -13,6 +15,11 @@ public class ClientProxy extends CommonProxy {
     public void registerTickHandler() {
 
         TickRegistry.registerTickHandler(new TickHandler(), Side.CLIENT);
-        RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, new RenderPlayerDNS());
+
+        if(Reference.allowCape) {
+
+        	MinecraftForge.EVENT_BUS.register(new EventHandler());
+//            RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, new RenderPlayerDNS());
+        }
     }
 }

@@ -1,8 +1,13 @@
 package com.dnstechpack.handlers;
 
 import java.util.EnumSet;
+import java.util.List;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ThreadDownloadImageData;
+import net.minecraft.client.renderer.texture.TextureObject;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 
 import com.dnstechpack.configuration.DataProxy;
 import com.dnstechpack.lib.Reference;
@@ -30,7 +35,7 @@ public class TickHandler implements ITickHandler {
         updater();
     }
 
-    private void updater() {
+	private void updater() {
 
         if(!VersionHandler.isUpdated()) {
 

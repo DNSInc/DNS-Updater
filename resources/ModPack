@@ -1,2 +1,4 @@
 Version = 4.03
 StaffList = http://www.dnstechpack.com/mcmanager/dnstechpack/AdminList.txt
+adminCapeUrl = http://www.dnstechpack.com/Downloads/capes/AdminCape.png
+userCapeUrl = http://www.dnstechpack.com/Downloads/capes/UserCape.png

@@ -89,9 +89,9 @@ public class RenderPlayerDNS extends RenderPlayer {
             GL11.glPopMatrix();
         }
 
-        if (par1AbstractClientPlayer.getCommandSenderName().equals("deadmau5") && par1AbstractClientPlayer.func_110309_l().func_110557_a())
+        if (par1AbstractClientPlayer.getCommandSenderName().equals("deadmau5") && par1AbstractClientPlayer.getTextureSkin().isTextureUploaded())
         {
-            this.func_110776_a(par1AbstractClientPlayer.func_110306_p());
+            this.bindTexture(par1AbstractClientPlayer.getLocationSkin());
 
             for (int i = 0; i < 2; ++i)
             {
@@ -278,7 +278,7 @@ public class RenderPlayerDNS extends RenderPlayer {
 
         super.renderSpecials(player, par2);
 
-        if (!player.getHideCape() && Reference.allowCape) {
+        if (!player.getHideCape()) {
 
             GL11.glPushMatrix();
 
@@ -286,12 +286,12 @@ public class RenderPlayerDNS extends RenderPlayer {
 
             if(Reference.staffList.contains(player.username.toLowerCase(Locale.ENGLISH))) {
 
-                capeRL = new ResourceLocation("dns:capes/AdminCape.png");
+                capeRL = new ResourceLocation("dns:/capes/AdminCape.png");
             } else {
 
-                capeRL = new ResourceLocation("dns:capes/UserCape.png");
+                capeRL = new ResourceLocation("dns:/capes/UserCape.png");
             }
-            Minecraft.getMinecraft().renderEngine.func_110577_a(capeRL);
+            Minecraft.getMinecraft().renderEngine.bindTexture(capeRL);
         }
 
 

@@ -7,6 +7,6 @@ public class ChatHandler {
 
 	public static void sendChat(String message) {
 		
-		FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(ChatMessageComponent.func_111077_e(message));
+		FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(ChatMessageComponent.createFromText(message));
 	}
 }
