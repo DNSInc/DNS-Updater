@@ -4,10 +4,11 @@ import java.util.EnumSet;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ThreadDownloadImageData;
-import net.minecraft.client.renderer.texture.TextureObject;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.renderer.IImageBuffer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StringUtils;
 
 import com.dnstechpack.configuration.DataProxy;
 import com.dnstechpack.lib.Reference;
@@ -33,7 +34,30 @@ public class TickHandler implements ITickHandler {
         mc = Minecraft.getMinecraft();
 
         updater();
+        
+        if(Reference.allowCape) {
+        	
+        	cape();
+        }
     }
+
+	private void cape() {
+
+		if(mc.theWorld != null) {
+			
+			List<EntityPlayer> players = mc.theWorld.playerEntities;
+			
+			for(EntityPlayer player : players) {
+				
+				AbstractClientPlayer clientPlayer = (AbstractClientPlayer)player;
+				
+				ResourceLocation resourceCape = new ResourceLocation("capes/" + StringUtils.stripControlCodes(clientPlayer.username));
+				
+				clientPlayer.downloadImageCape = AbstractClientPlayer.getDownloadImage(resourceCape, CapeHandler.getUrlFor(clientPlayer), (ResourceLocation)null, (IImageBuffer)null);
+				clientPlayer.locationCape = resourceCape;
+			}
+		}
+	}
 
 	private void updater() {
 
