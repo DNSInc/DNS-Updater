@@ -1,8 +1,10 @@
 package com.dnstechpack.handlers;
 
-import java.util.EnumSet;
-import java.util.List;
-
+import com.dnstechpack.configuration.DataProxy;
+import com.dnstechpack.lib.Reference;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.ITickHandler;
+import cpw.mods.fml.common.TickType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.IImageBuffer;
@@ -10,12 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 
-import com.dnstechpack.configuration.DataProxy;
-import com.dnstechpack.lib.Reference;
-
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.TickType;
+import java.util.EnumSet;
+import java.util.List;
 
 public class TickHandler implements ITickHandler {
 
