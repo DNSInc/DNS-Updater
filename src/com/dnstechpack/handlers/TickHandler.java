@@ -7,7 +7,6 @@ import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.renderer.IImageBuffer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
@@ -15,10 +14,11 @@ import net.minecraft.util.StringUtils;
 import java.util.EnumSet;
 import java.util.List;
 
+
 public class TickHandler implements ITickHandler {
 
     private int tickCount = DataProxy.delay;
-    private String label = Reference.updaterName.toUpperCase().replace(" ", "_") + "_TICKHANDLER";
+    private final String label = Reference.updaterName.toUpperCase().replace(" ", "_") + "_TICKHANDLER";
     private Minecraft mc;
 
     @Override
@@ -32,32 +32,32 @@ public class TickHandler implements ITickHandler {
         mc = Minecraft.getMinecraft();
 
         updater();
-        
+
         if(Reference.allowCape) {
-        	
-        	cape();
+
+            cape();
         }
     }
 
-	private void cape() {
+    private void cape() {
 
-		if(mc.theWorld != null) {
+        if(mc.theWorld != null) {
 			
-			List<EntityPlayer> players = mc.theWorld.playerEntities;
-			
-			for(EntityPlayer player : players) {
-				
-				AbstractClientPlayer clientPlayer = (AbstractClientPlayer)player;
-				
-				ResourceLocation resourceCape = new ResourceLocation("capes/" + StringUtils.stripControlCodes(clientPlayer.username));
-				
-				clientPlayer.downloadImageCape = AbstractClientPlayer.getDownloadImage(resourceCape, CapeHandler.getUrlFor(clientPlayer), (ResourceLocation)null, (IImageBuffer)null);
-				clientPlayer.locationCape = resourceCape;
-			}
-		}
-	}
+            List<EntityPlayer> players = mc.theWorld.playerEntities;
 
-	private void updater() {
+            for(EntityPlayer player : players) {
+
+                AbstractClientPlayer clientPlayer = (AbstractClientPlayer)player;
+
+                ResourceLocation resourceCape = new ResourceLocation("capes/" + StringUtils.stripControlCodes(clientPlayer.username));
+
+                clientPlayer.downloadImageCape = AbstractClientPlayer.getDownloadImage(resourceCape, CapeHandler.getUrlFor(clientPlayer), null, null);
+                clientPlayer.locationCape = resourceCape;
+            }
+        }
+    }
+
+    private void updater() {
 
         if(!VersionHandler.isUpdated()) {
 
@@ -65,8 +65,7 @@ public class TickHandler implements ITickHandler {
 
                 if(tickCount == 0) {
 
-                    System.out.println("[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion()
-                            + ")");
+                    System.out.println("[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion() + ")");
                     String url = VersionHandler.packURL;
                     ChatHandler.sendChat(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version " + VersionHandler.getRemoteVersion() + " is available now. You have " + url);
                     ChatHandler.sendChat(VersionHandler.getInfo());

@@ -4,14 +4,15 @@ import com.dnstechpack.configuration.Options;
 import com.dnstechpack.handlers.ColourHandler;
 import com.dnstechpack.handlers.VersionHandler;
 import com.dnstechpack.helpers.LogHelper;
-import com.dnstechpack.proxy.CommonProxy;
 import com.dnstechpack.lib.Reference;
+import com.dnstechpack.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
 import java.util.Arrays;
+
 
 @Mod(modid = Reference.modID, version = Reference.version, name = Reference.modName)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -38,7 +39,7 @@ public class DNSUpdater {
         event.getModMetadata().description = "This mod lets you know when the latest DNS packs are released.";
 
         proxy.registerTickHandler();
-        
+
         //System.out.println(DNSUpdater.class.getResource("/textures/dns/UserCape.png").toString());
     }
 }

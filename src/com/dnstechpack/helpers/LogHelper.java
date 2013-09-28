@@ -1,15 +1,15 @@
 package com.dnstechpack.helpers;
 
+import com.dnstechpack.lib.Reference;
+import cpw.mods.fml.common.FMLLog;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.dnstechpack.lib.Reference;
-
-import cpw.mods.fml.common.FMLLog;
 
 public class LogHelper {
 
-    private static Logger LOGGER = Logger.getLogger(Reference.updaterName);
+    private static final Logger LOGGER = Logger.getLogger(Reference.updaterName);
 
     public static void init() {
 

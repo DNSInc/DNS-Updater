@@ -5,6 +5,7 @@ import com.dnstechpack.helpers.URLHelper;
 
 import java.util.List;
 
+
 public class Reference {
 
     public static final String modID = "DNS_Updater";
@@ -20,12 +21,8 @@ public class Reference {
     public static String updaterName;
     public static String outputColour;
     public static String colour;
-    
-    public static boolean allowCape = true;
-    public static boolean isOffline = false;
-    
-    public static final int VERSION_INDEX = 0;
-    public static final int STAFF_LIST_INDEX = 1;
 
-    public static List<String> staffList = URLHelper.retrieveStringList((String)SETTINGS.get("StaffList"));
+    public static boolean allowCape = true;
+
+    public static final List<String> staffList = URLHelper.retrieveStringList((String)SETTINGS.get("StaffList"));
 }

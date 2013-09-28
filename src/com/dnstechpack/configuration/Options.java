@@ -1,12 +1,11 @@
 package com.dnstechpack.configuration;
 
-import java.io.File;
-
+import com.dnstechpack.lib.Reference;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.Configuration;
 
-import com.dnstechpack.lib.Reference;
+import java.io.File;
 
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class Options {
 
@@ -23,15 +22,16 @@ public class Options {
             DataProxy.delay = config.get(Reference.options, "How long to wait before notifications are shown", 200).getInt();
 
             Reference.updaterName = config.get(Reference.options, "Name of the modpack the updater will use", "DNS Techpack").getString();
-            Reference.outputColour = config.get(Reference.options, "The colout the updater will use", "green").getString();
+            Reference.outputColour = config.get(Reference.options, "The colour the updater will use", "green").getString();
             Reference.allowCape = config.get(Reference.options, "Do you want to enable cape rendering", true).getBoolean(true);
         } catch(Exception e) {
 
             e.printStackTrace();
         } finally {
 
-            if(config.hasChanged())
+            if(config.hasChanged()) {
                 config.save();
+            }
         }
     }
 }
