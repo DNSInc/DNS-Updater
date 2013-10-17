@@ -21,8 +21,4 @@ public class Reference {
     public static String updaterName;
     public static String outputColour;
     public static String colour;
-
-    public static boolean allowCape = true;
-
-    public static final List<String> staffList = URLHelper.retrieveStringList((String)SETTINGS.get("StaffList"));
 }

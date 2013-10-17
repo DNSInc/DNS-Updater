@@ -32,29 +32,6 @@ public class TickHandler implements ITickHandler {
         mc = Minecraft.getMinecraft();
 
         updater();
-
-        if(Reference.allowCape) {
-
-            cape();
-        }
-    }
-
-    private void cape() {
-
-        if(mc.theWorld != null) {
-			
-            List<EntityPlayer> players = mc.theWorld.playerEntities;
-
-            for(EntityPlayer player : players) {
-
-                AbstractClientPlayer clientPlayer = (AbstractClientPlayer)player;
-
-                ResourceLocation resourceCape = new ResourceLocation("capes/" + StringUtils.stripControlCodes(clientPlayer.username));
-
-                clientPlayer.downloadImageCape = AbstractClientPlayer.getDownloadImage(resourceCape, CapeHandler.getUrlFor(clientPlayer), null, null);
-                clientPlayer.locationCape = resourceCape;
-            }
-        }
     }
 
     private void updater() {

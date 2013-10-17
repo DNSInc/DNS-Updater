@@ -23,7 +23,6 @@ public class Options {
 
             Reference.updaterName = config.get(Reference.options, "Name of the modpack the updater will use", "DNS Techpack").getString();
             Reference.outputColour = config.get(Reference.options, "The colour the updater will use", "green").getString();
-            Reference.allowCape = config.get(Reference.options, "Do you want to enable cape rendering", true).getBoolean(true);
         } catch(Exception e) {
 
             e.printStackTrace();

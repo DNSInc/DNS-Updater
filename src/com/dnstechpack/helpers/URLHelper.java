@@ -1,6 +1,7 @@
 package com.dnstechpack.helpers;
 
 import com.dnstechpack.lib.Reference;
+import com.google.common.collect.Lists;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -47,7 +48,7 @@ public class URLHelper {
         } catch(Exception e) {
 
             e.printStackTrace();
-            return Arrays.asList("Wizard111", "Trevail69", "angrychicken83", "skully250", "vydax", "darknetix", "tesmodderman", "darkhax", "viper283", "Llamafaggot");
+            return Lists.newArrayList();
         }
     }
 }
