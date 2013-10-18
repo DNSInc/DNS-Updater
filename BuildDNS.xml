@@ -1,0 +1,57 @@
+<?xml version="1.0" ?> 
+<project name="DNS Techpack Updater Mod" default="build">
+	
+	<property file="BuildDNS.properties"/>
+	
+	<target name="clean">
+		<delete dir="${dir.development}\forge\mcp\src\minecraft\com" />
+		<delete dir="${dir.development}\forge\mcp\reobf\minecraft" />
+	</target>
+	
+	<target name="prep">
+		<copy todir="${dir.development}\forge\mcp\src\minecraft">
+			<fileset dir="src" />
+		</copy>
+
+        <replace dir="${dir.development}\forge\mcp\src\minecraft" token="%VERSION%" value="${release.mod.version}" />
+	</target>
+	
+	<target name="recompile">
+		<exec dir="${dir.development}\forge\mcp" executable="cmd" osfamily="windows">
+			<arg line="/c recompile.bat" />
+		</exec>
+		<exec dir="${dir.development}\forge\mcp" executable="bash" osfamily="unix">
+			<arg line="recompile.sh" />
+		</exec>
+	</target>
+	
+	<target name="reobfuscate">
+		<exec dir="${dir.development}\forge\mcp" executable="cmd" osfamily="windows">
+			<arg line="/c reobfuscate_srg.bat" />
+		</exec>
+		<exec dir="${dir.development}\forge\mcp" executable="bash" osfamily="unix">
+			<arg line="reobfuscate_srg.sh" />
+		</exec>
+	</target>
+	
+	<target name="build">
+		<!-- Prep for the build -->
+		<antcall target="clean" />
+		<antcall target="prep" />
+		<antcall target="recompile" />		
+		<antcall target="reobfuscate" />
+		
+		<!-- Delete compiled mc code -->
+		<delete dir="${dir.development}\forge\mcp\reobf\minecraft\net" />
+		
+		<!-- Build the jar -->
+		<mkdir dir="${dir.release}\${release.minecraft.version}\${release.mod.version}" />
+		<jar destfile="${dir.release}\${release.version.type}\${release.minecraft.version}\${release.mod.version}\DNSUpdater-${release.mod.version}-${release.version.type}.jar">
+			<fileset dir="${dir.development}\forge\mcp\reobf\minecraft" />
+            <<fileset dir="res" />
+		</jar>
+		
+		<!-- Clean up the MCP source now that we are done -->
+		<antcall target="clean" />
+	</target>
+</project>
