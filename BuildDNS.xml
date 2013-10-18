@@ -48,7 +48,7 @@
 		<mkdir dir="${dir.release}\${release.minecraft.version}\${release.mod.version}" />
 		<jar destfile="${dir.release}\${release.version.type}\${release.minecraft.version}\${release.mod.version}\DNSUpdater-${release.mod.version}-${release.version.type}.jar">
 			<fileset dir="${dir.development}\forge\mcp\reobf\minecraft" />
-            <<fileset dir="res" />
+            <fileset dir="res" />
 		</jar>
 		
 		<!-- Clean up the MCP source now that we are done -->
